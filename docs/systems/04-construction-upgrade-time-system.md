@@ -8,9 +8,11 @@ Wenn der Spieler ein Gebäude kauft, umbauen lässt oder ein Business erweitert,
 
 Dieses System bringt Animal-Crossing-/Cozy-Life-Sim-Elemente in Night Shift City: Dinge brauchen Zeit, und genau dadurch bekommen sie Bedeutung.
 
+Wichtig: Diese Zeit ist ausschließlich Ingame-Zeit. Es gibt keine Real-Life-Timer, keine echte Uhrzeitbindung und keine Erwartung, dass der Spieler an einem bestimmten realen Tag oder zu einer bestimmten realen Uhrzeit online ist.
+
 ## Design-Kernsatz
 
-> Fortschritt darf dauern, damit er sich nach Fortschritt anfühlt.
+> Fortschritt darf dauern, damit er sich nach Fortschritt anfühlt – aber nur innerhalb der Spielzeit.
 
 ## Inspiration und Gefühl
 
@@ -29,6 +31,10 @@ Für Night Shift City bedeutet das:
 - Mitarbeiter oder Lieferanten können vorbereitet werden.
 - Eröffnung wird zu einem kleinen Moment.
 
+Der wichtige Unterschied zu Real-Time-Cozy-Spielen:
+
+> Der Spieler wartet nicht im echten Leben. Er erlebt Zeit im Spiel.
+
 ## Warum das wichtig ist
 
 Sofortige Upgrades können sich bedeutungslos anfühlen.
@@ -45,7 +51,11 @@ Zeitbasierter Ausbau erzeugt:
 
 Der Spieler soll denken:
 
-> „Morgen ist mein neuer Laden fertig. Ich fahr später nochmal vorbei.“
+> „Morgen im Spiel ist mein neuer Laden fertig. Ich fahr später nochmal vorbei.“
+
+Nicht:
+
+> „Ich muss morgen in echt wiederkommen.“
 
 ## Verbindung zur Gesamtvision
 
@@ -113,20 +123,20 @@ cost:
   money: 18000
 
 duration:
-  days: 5
+  gameDays: 5
 
 requirements:
   - owns_location
   - permits_available
 
 progressStates:
-  - day: 0
+  - gameDayOffset: 0
     state: planning
-  - day: 1
+  - gameDayOffset: 1
     state: demolition
-  - day: 3
+  - gameDayOffset: 3
     state: construction
-  - day: 5
+  - gameDayOffset: 5
     state: final_setup
 
 onComplete:
@@ -177,16 +187,18 @@ Day 5, 18:00: Neon Kettle is ready to open.
 
 ## Zeitmodell
 
-Bauzeit kann in Spieltagen, Stunden oder abstrakten Ticks gemessen werden.
+Bauzeit wird in Spieltagen, Spielstunden oder abstrakten Ingame-Ticks gemessen.
 
 Wichtig ist nicht Realzeit, sondern Spielrhythmus.
 
 Mögliche Skalierung:
 
-- kleine Deko: einige Stunden
-- kleines Upgrade: 1 Tag
-- Umbau: mehrere Tage
-- großer Standortwechsel: 1 Woche oder mehr
+- kleine Deko: einige Spielstunden
+- kleines Upgrade: 1 Spieltag
+- Umbau: mehrere Spieltage
+- großer Standortwechsel: 1 Ingame-Woche oder mehr
+
+Dieses System muss mit `docs/systems/05-game-time-calendar-system.md` konsistent bleiben.
 
 ## Spieleraktivität während Bauzeit
 
@@ -199,6 +211,7 @@ Während ein Projekt läuft, soll der Spieler andere Dinge tun können:
 - andere Businesses betreiben
 - NPCs beobachten
 - Kapital aufbauen
+- schlafen oder Ingame-Zeit vergehen lassen
 
 Dadurch wird Wartezeit nicht Leerlauf, sondern Teil des Loops.
 
@@ -209,24 +222,28 @@ Wichtig: Bauzeiten sollen nicht wie künstliche Wartebarrieren wirken.
 Nicht gewünscht:
 
 - Echtgeld-Beschleunigung
+- Real-Life-Timer
+- echte 24h-Wartezeiten
 - harte Wartepflicht ohne Alternative
 - unnötig lange Timer
 - tägliche Login-Pflicht
 - Bestrafung, wenn man nicht pünktlich zurückkommt
+- Inhalte, die nur an echten Wochentagen verfügbar sind
 
 Gewünscht:
 
-- organischer Rhythmus
+- organischer Ingame-Rhythmus
 - Vorfreude
 - sichtbare Veränderung
 - freie Nebenaktivitäten
 - cozy Progression
+- vollständige Unabhängigkeit von echter Uhrzeit
 
 ## Beschleunigung und Einfluss
 
-Später könnte der Spieler Bauzeiten beeinflussen:
+Später könnte der Spieler Bauzeiten innerhalb des Spiels beeinflussen:
 
-- mehr Geld investieren
+- mehr Ingame-Geld investieren
 - bessere Crew beauftragen
 - selbst helfen
 - Materialien besorgen
@@ -248,7 +265,7 @@ Conversion entscheidet:
 
 Construction Time entscheidet:
 
-> Wie lange dauert die Veränderung und wie wird sie sichtbar?
+> Wie lange dauert die Veränderung in Ingame-Zeit und wie wird sie sichtbar?
 
 ## Verbindung zum Business System
 
@@ -318,7 +335,7 @@ Dieses System kann auch andere spätere Settings tragen:
 - Frachtausgabe erweitern
 - Sicherheitsmodul installieren
 
-Die Engine braucht dafür nur zeitbasierte Projekte und Resultate.
+Die Engine braucht dafür nur zeitbasierte Ingame-Projekte und Resultate.
 
 ## MVP-Relevanz
 
@@ -327,8 +344,8 @@ Dieses System ist für die Endvision wichtig, aber muss nicht vollständig im er
 Für eine frühe Version reicht:
 
 - ein Bauprojekt kann gestartet werden
-- es hat Kosten und Dauer
-- es wechselt nach Zeitablauf den Status
+- es hat Kosten und Ingame-Dauer
+- es wechselt nach Spielzeitablauf den Status
 - es erzeugt Debug-Ausgaben
 - am Ende wird die Location/Business-Konfiguration geändert
 
@@ -336,7 +353,7 @@ Für eine frühe Version reicht:
 
 ```text
 Day 1, 10:00: Player starts conversion project: Old Thread Outfitters -> Bar.
-Day 1, 10:01: Project status: in_progress, phase: planning, remaining: 5 days.
+Day 1, 10:01: Project status: in_progress, phase: planning, remaining: 5 game days.
 Day 2, 09:00: Construction phase changed to demolition.
 Day 4, 09:00: Construction phase changed to interior_setup.
 Day 6, 18:00: Project completed. Neon Kettle can now open.
@@ -352,6 +369,8 @@ Day 6, 18:00: Project completed. Neon Kettle can now open.
 - Soll es Eröffnungsevents geben?
 - Wie stark beeinflusst ein Umbau den District während der Bauzeit?
 
-## Wichtigste Regel
+## Wichtigste Regeln
 
 > Umbau ist kein Menü-Klick. Umbau ist ein Ereignis in der Stadt.
+
+> Bauzeit ist immer Ingame-Zeit, niemals Real-Life-Zeit.
