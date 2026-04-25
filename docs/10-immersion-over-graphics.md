@@ -22,12 +22,32 @@ Beispiele für diese Art von Priorität:
 
 - Minecraft: einfache Optik, extrem starke Freiheit und Systemik
 - RimWorld: reduzierte Darstellung, aber tiefe emergente Geschichten
+- Dwarf Fortress: ursprünglich extrem reduzierte ASCII-/Konsolen-Darstellung, aber darunter eine absurd tiefe Welt-, Figuren- und Ereignissimulation
 - ältere Need-for-Speed-Spiele wie Most Wanted oder Underground: starkes Gefühl, klare Identität, erinnerbare Atmosphäre
 - viele alte Spiele allgemein: technische Begrenzung, aber starkes Gameplay und starke Immersion
 
 Diese Beispiele sind keine direkten Designvorlagen, sondern Belege für eine Haltung:
 
 > Grafik altert. Spielgefühl bleibt.
+
+## Dwarf-Fortress-Lektion
+
+Dwarf Fortress ist als Referenz besonders wichtig, weil es zeigt, dass Immersion nicht aus Darstellungstiefe entstehen muss, sondern aus Simulations- und Bedeutungstiefe.
+
+Ein Spiel kann visuell extrem reduziert sein und trotzdem eine Welt erzeugen, über die Spieler Geschichten erzählen, weil darunter Systeme arbeiten:
+
+- Figuren mit Bedürfnissen, Zuständen und Geschichten
+- Orte mit Funktion
+- Ereignisse mit Folgen
+- emergente Katastrophen
+- nachvollziehbare Kausalität
+- Spieler, die aus Simulation Geschichten rekonstruieren
+
+Für Night Shift City bedeutet das:
+
+> Wenn die Stadt als Simulation lebt, kann auch eine einfache Darstellung stark immersiv sein.
+
+Die frühe Version darf daher sogar eher wie ein Debug-/Konsolenprogramm wirken, solange sie zeigt, dass die Systeme atmen.
 
 ## Was Immersion hier bedeutet
 
@@ -77,6 +97,7 @@ Bevor visuelles Polishing wichtig wird, müssen diese Dinge funktionieren:
 Für frühe Versionen reicht eine einfache Darstellung:
 
 - Debug-Text
+- einfache Konsolen-/Textsimulation
 - einfache 2D-/Top-Down-Ansicht
 - simple Icons
 - Platzhalter-Sprites
