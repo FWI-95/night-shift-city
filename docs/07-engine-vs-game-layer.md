@@ -15,9 +15,17 @@ Beispiele:
 - Dorfkneipe mit lokalen Routinen
 - Spaceport-Kiosk mit Reisenden und Schichtarbeitern
 
+## Prioritätsentscheidung
+
+Night Shift City ist die konkrete Hauptpriorität dieses Repositories und der erste spielbare Beweisfall.
+
+Das größere langfristige Ziel ist jedoch, aus den benötigten Systemen schrittweise eine kleine, verständliche und wiederverwendbare Engine entstehen zu lassen.
+
+Diese Engine ist kein separates kurzfristiges Hauptprojekt und soll Night Shift City nicht verdrängen. Sie ist das langfristige Dach, das aus Night Shift City heraus wächst.
+
 ## Design-Kernsatz
 
-> Night Shift City ist das erste Spiel. Die darunterliegende Engine soll aber nicht in Cyberpunk gefangen sein.
+> Night Shift City ist der Anker. Die Engine ist das größere Ziel dahinter.
 
 ## Zwei-Schichten-Modell
 
@@ -248,7 +256,7 @@ Mögliche Namen / Konzepte:
 - Urban Routine Engine
 - Cozy Sim Toolkit
 
-Aber diese Auslagerung ist kein kurzfristiges Ziel.
+Aber diese Auslagerung ist kein kurzfristiges Ziel. Die Engine-Reife entsteht über wiederholte konkrete Night-Shift-City-Anwendungsfälle.
 
 ## Entscheidung
 
@@ -256,6 +264,8 @@ Night Shift City wird als erstes Spiel und erster Proof of Concept entwickelt.
 
 Die darunterliegenden Systeme werden bewusst so gestaltet, dass sie später auch andere Settings und Spiele tragen könnten, ohne jetzt schon als vollständiger RPG Maker gebaut zu werden.
 
+Langfristig ist die Engine das größere Konstrukt. Kurz- und mittelfristig wird sie aber ausschließlich über Night Shift City validiert.
+
 ## Wichtigste Regel
 
-> Night Shift City ist der Anker. Die Engine ist die Möglichkeit dahinter.
+> Night Shift City priorisiert die Umsetzung. Die Engine priorisiert die Wiederverwendbarkeit. Beides darf sich nicht widersprechen – aber wenn es knirscht, entscheidet der konkrete Night-Shift-City-Use-Case.
